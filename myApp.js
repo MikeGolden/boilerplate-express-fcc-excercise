@@ -21,14 +21,10 @@ app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
-    var string = req.method + " " + req.path + " - " + req.ip;
-    console.log(string);
     res.sendFile(__dirname + "/views/index.html");
   });
 
 app.get("/json", (req, res) => {
-    var string = req.method + " " + req.path + " - " + req.ip;
-    console.log(string);
     if (process.env.MESSAGE_STYLE === "uppercase") {
         res.json({
             message: "hello json".toUpperCase()
@@ -40,9 +36,16 @@ app.get("/json", (req, res) => {
         }             
     });
 
-
-
-
+const middleware = (req, res, next) => {
+  req.time = new Date().toString();
+  next();
+};
+      
+app.get("/now", middleware, (req, res) => {
+  res.send({
+    time: req.time
+  });
+});
 
 
 
