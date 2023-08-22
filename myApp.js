@@ -17,7 +17,7 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + "/views/index.html");
   });
 
-if (process.env.VAR_NAME === "uppercase") {
+if (process.env.MESSAGE_STYLE === "uppercase") {
     response = "Hello json".toUpperCase();
   } else {
     response = "Hello json";
