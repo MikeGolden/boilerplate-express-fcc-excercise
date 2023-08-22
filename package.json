@@ -1,5 +1,9 @@
 {
   "name": "fcc-learn-node-with-express",
+  "author": "Mykhailo Goldenberg",
+  "description": "Deploying basic app to show some backend skills",
+  "keywords": ["npm", "freecodecamp", "backend", "deploy"],
+  "license": "MIT",
   "version": "0.1.0",
   "dependencies": {
     "body-parser": "^1.15.2",
