@@ -3,6 +3,13 @@ let app = express();
 
 console.log("Hello World");
 
+app.use(function middleware(req, res, next) {
+    var string = req.method + " " + req.path + " - " + req.ip;
+    console.log(string);
+    // Call the next function in line:
+    next();
+  });
+
 // app.get("/", (req, res) => {
 //     res.send("Hello Express");
 //  });
