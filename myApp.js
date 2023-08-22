@@ -1,7 +1,12 @@
 let express = require('express');
 let app = express();
 
+var bodyParser = require("body-parser");
+
 console.log("Hello World");
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(function middleware(req, res, next) {
     var string = req.method + " " + req.path + " - " + req.ip;
